@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/card.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/card.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/trash.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/trash.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/amex.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/amex.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/visa.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/visa.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/maestro.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/maestro.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/ic_launcher.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/laser.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/laser.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/discover.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/discover.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/app_bar_next.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/app_bar_next.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/diner.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/diner.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/jcb.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/jcb.png"
+    },
+    {
+        "merged": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/master.png",
+        "source": "/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/master.png"
+    }
+]

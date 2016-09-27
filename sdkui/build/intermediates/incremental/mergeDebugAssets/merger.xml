@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/src/main/assets"/><source path="/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/home/d7/Downloads/Codes/Android-SDK-Sample-App-master/sdkui/src/debug/assets"/></dataSet></merger>
