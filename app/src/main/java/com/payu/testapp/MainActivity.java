@@ -42,22 +42,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     int merchantIndex = 0;
-//    int env = PayuConstants.MOBILE_STAGING_ENV;
+    //    int env = PayuConstants.MOBILE_STAGING_ENV;
     // in case of production make sure that merchantIndex is fixed as 0 (0MQaQP) for other key's payu server cant generate hash
     int env = PayuConstants.PRODUCTION_ENV;
 
     String merchantTestKeys[] = {"gtKFFx", "gtKFFx"};
-    String merchantTestSalts[] = {"eCwWELxi", "eCwWELxi" };
+    String merchantTestSalts[] = {"eCwWELxi", "eCwWELxi"};
 
     String merchantProductionKeys[] = {"0MQaQP", "smsplus"};
     String merchantProductionSalts[] = {"13p0PXZk", "1b1b0",};
 
     String offerKeys[] = {"test123@6622", "offer_test@ffer_t5172", "offerfranklin@6636"};
 
-    String merchantKey = env == PayuConstants.PRODUCTION_ENV ? merchantProductionKeys[merchantIndex]:merchantTestKeys[merchantIndex];
-//    String merchantSalt = env == PayuConstants.PRODUCTION_ENV ? merchantProductionSalts[merchantIndex] : merchantTestSalts[merchantIndex];
-    String mandatoryKeys[] = { PayuConstants.KEY, PayuConstants.AMOUNT, PayuConstants.PRODUCT_INFO, PayuConstants.FIRST_NAME, PayuConstants.EMAIL, PayuConstants.TXNID, PayuConstants.SURL, PayuConstants.FURL, PayuConstants.USER_CREDENTIALS, PayuConstants.UDF1, PayuConstants.UDF2, PayuConstants.UDF3, PayuConstants.UDF4, PayuConstants.UDF5, PayuConstants.ENV};
-    String mandatoryValues[] = { merchantKey, "10.0", "myproduct", "firstname", "me@itsmeonly.com", ""+System.currentTimeMillis(), "https://payu.herokuapp.com/success", "https://payu.herokuapp.com/failure", merchantKey+":payutest@payu.in", "udf1", "udf2", "udf3", "udf4", "udf5", ""+env};
+    String merchantKey = env == PayuConstants.PRODUCTION_ENV ? merchantProductionKeys[merchantIndex] : merchantTestKeys[merchantIndex];
+    //    String merchantSalt = env == PayuConstants.PRODUCTION_ENV ? merchantProductionSalts[merchantIndex] : merchantTestSalts[merchantIndex];
+    String mandatoryKeys[] = {PayuConstants.KEY, PayuConstants.AMOUNT, PayuConstants.PRODUCT_INFO, PayuConstants.FIRST_NAME, PayuConstants.EMAIL, PayuConstants.TXNID, PayuConstants.SURL, PayuConstants.FURL, PayuConstants.USER_CREDENTIALS, PayuConstants.UDF1, PayuConstants.UDF2, PayuConstants.UDF3, PayuConstants.UDF4, PayuConstants.UDF5, PayuConstants.ENV};
+    String mandatoryValues[] = {merchantKey, "10.0", "myproduct", "firstname", "me@itsmeonly.com", "" + System.currentTimeMillis(), "https://payu.herokuapp.com/success", "https://payu.herokuapp.com/failure", merchantKey + ":payutest@payu.in", "udf1", "udf2", "udf3", "udf4", "udf5", "" + env};
 
     String inputData = "";
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String salt;
     private String var1;
     private Intent intent;
-//    private mPaymentParams mPaymentParams;
+    //    private mPaymentParams mPaymentParams;
     private PaymentParams mPaymentParams;
     private PayuConfig payuConfig;
     private String cardBin;
@@ -104,18 +104,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nextButton.setOnClickListener(this);
 
         // filling up the ui with the values.
-        for(int i = 0 ; i < mandatoryKeys.length; i++){
+        for (int i = 0; i < mandatoryKeys.length; i++) {
             addView();
             LinearLayout currentLayout = (LinearLayout) rowContainerLinearLayout.getChildAt(i);
             ((EditText) currentLayout.getChildAt(0)).setText(mandatoryKeys[i]);
-            if(null != mandatoryValues[i])
-                ((EditText)currentLayout.getChildAt(1)).setText(mandatoryValues[i]);
+            if (null != mandatoryValues[i])
+                ((EditText) currentLayout.getChildAt(1)).setText(mandatoryValues[i]);
         }
 
         // lets tell the people what version of sdk we are using
         PayUSdkDetails payUSdkDetails = new PayUSdkDetails();
 
-        Toast.makeText(this, "Build No: " + payUSdkDetails.getSdkBuildNumber() + "\n Build Type: " + payUSdkDetails.getSdkBuildType() + " \n Build Flavor: " +  payUSdkDetails.getSdkFlavor() + "\n Application Id: " + payUSdkDetails.getSdkApplicationId() + "\n Version Code: " + payUSdkDetails.getSdkVersionCode()+ "\n Version Name: " + payUSdkDetails.getSdkVersionName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Build No: " + payUSdkDetails.getSdkBuildNumber() + "\n Build Type: " + payUSdkDetails.getSdkBuildType() + " \n Build Flavor: " + payUSdkDetails.getSdkFlavor() + "\n Application Id: " + payUSdkDetails.getSdkApplicationId() + "\n Version Code: " + payUSdkDetails.getSdkVersionCode() + "\n Version Name: " + payUSdkDetails.getSdkVersionName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "PRIYANKA", Toast.LENGTH_LONG).show();
 
     }
 
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
             case R.id.action_exit:
                 break;
             case R.id.action_next:
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PayuConstants.PAYU_REQUEST_CODE) {
-            if(data != null ) {
+            if (data != null) {
                 new AlertDialog.Builder(this)
                         .setCancelable(false)
                         .setMessage(data.getStringExtra("result"))
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             }
                         }).show();
-            }else{
+            } else {
                 Toast.makeText(this, "Could not receive data", Toast.LENGTH_LONG).show();
             }
         }
@@ -165,8 +166,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case  R.id.button_add:
+        switch (v.getId()) {
+            case R.id.button_add:
                 addView();
                 break;
             case R.id.button_next:
@@ -175,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void addView(){
+    private void addView() {
         rowContainerLinearLayout.addView(getLayoutInflater().inflate(R.layout.row, null));
         findViewById(R.id.scroll_view_main).post(new Runnable() {
             @Override
@@ -185,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void navigateToBaseActivity(){
+    private void navigateToBaseActivity() {
         intent = new Intent(this, PayUBaseActivity.class);
         LinearLayout rowContainerLayout = (LinearLayout) findViewById(R.id.linear_layout_row_container);
         mPaymentParams = new PaymentParams();
@@ -193,10 +194,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int childNodeCount = rowContainerLayout.getChildCount();
 
-        for(int i = 0; i < childNodeCount; i++){
+        for (int i = 0; i < childNodeCount; i++) {
             LinearLayout linearLayout = (LinearLayout) rowContainerLayout.getChildAt(i);
-            inputData = ((EditText)linearLayout.getChildAt(1)).getText().toString();
-            switch (((EditText)linearLayout.getChildAt(0)).getText().toString()){
+            inputData = ((EditText) linearLayout.getChildAt(1)).getText().toString();
+            switch (((EditText) linearLayout.getChildAt(0)).getText().toString()) {
                 case PayuConstants.KEY:
                     mPaymentParams.setKey(inputData);
                     key = inputData;
@@ -259,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // stetting up the environment
                 case PayuConstants.ENV:
                     String environment = inputData;
-                    payuConfig.setEnvironment(environment.contentEquals(""+PayuConstants.PRODUCTION_ENV) ? PayuConstants.PRODUCTION_ENV :PayuConstants.MOBILE_STAGING_ENV);
+                    payuConfig.setEnvironment(environment.contentEquals("" + PayuConstants.PRODUCTION_ENV) ? PayuConstants.PRODUCTION_ENV : PayuConstants.MOBILE_STAGING_ENV);
                     break;
 
                 // is_Domestic
@@ -283,11 +284,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // generate hash from server
         // just a sample. Acturally Merchant should generate from his server.
-        if(null == salt) generateHashFromServer(mPaymentParams);
+        if (null == salt) generateHashFromServer(mPaymentParams);
         else generateHashFromSDK(mPaymentParams, intent.getStringExtra(PayuConstants.SALT));
 
 
-         // generate hash from client;
+        // generate hash from client;
         /**
          *  just for testing, dont use this in production.
          *  merchant should generate the hash from his server.
@@ -296,9 +297,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        generateHashFromSDK(mPaymentParams, intent.getStringExtra(PayuConstants.SALT));
 
     }
-    /****************************** Server hash generation ********************************/
+
+    /******************************
+     * Server hash generation
+     ********************************/
     // lets generate hashes from server
-    public void generateHashFromServer(PaymentParams mPaymentParams){
+    public void generateHashFromServer(PaymentParams mPaymentParams) {
         nextButton.setEnabled(false); // lets not allow the user to click the button again and again.
         // lets create the post params
 
@@ -317,10 +321,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         postParamsBuffer.append(concatParams(PayuConstants.USER_CREDENTIALS, mPaymentParams.getUserCredentials() == null ? PayuConstants.DEFAULT : mPaymentParams.getUserCredentials()));
 
         // for offer_key
-        if(null != mPaymentParams.getOfferKey())
+        if (null != mPaymentParams.getOfferKey())
             postParamsBuffer.append(concatParams(PayuConstants.OFFER_KEY, mPaymentParams.getOfferKey()));
         // for check_isDomestic
-        if(null != cardBin)
+        if (null != cardBin)
             postParamsBuffer.append(concatParams("card_bin", cardBin));
 
         String postParams = postParamsBuffer.charAt(postParamsBuffer.length() - 1) == '&' ? postParamsBuffer.substring(0, postParamsBuffer.length() - 1).toString() : postParamsBuffer.toString();
@@ -334,10 +338,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return key + "=" + value + "&";
     }
 
-    class GetHashesFromServerTask extends AsyncTask<String, String, PayuHashes>{
+    class GetHashesFromServerTask extends AsyncTask<String, String, PayuHashes> {
 
         @Override
-        protected PayuHashes doInBackground(String ... postParams) {
+        protected PayuHashes doInBackground(String... postParams) {
             PayuHashes payuHashes = new PayuHashes();
             try {
 //                URL url = new URL(PayuConstants.MOBILE_TEST_FETCH_DATA_URL);
@@ -367,9 +371,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 JSONObject response = new JSONObject(responseStringBuffer.toString());
 
                 Iterator<String> payuHashIterator = response.keys();
-                while(payuHashIterator.hasNext()){
+                while (payuHashIterator.hasNext()) {
                     String key = payuHashIterator.next();
-                    switch (key){
+                    switch (key) {
                         case "payment_hash":
                             payuHashes.setPaymentHash(response.getString(key));
                             break;
@@ -433,11 +437,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int childNodeCount = rowContainerLayout.getChildCount();
         // we need a unique txnid every time..
-        for(int i = 0; i < childNodeCount; i++){
+        for (int i = 0; i < childNodeCount; i++) {
             LinearLayout linearLayout = (LinearLayout) rowContainerLayout.getChildAt(i);
-            switch (((EditText)linearLayout.getChildAt(0)).getText().toString()){
+            switch (((EditText) linearLayout.getChildAt(0)).getText().toString()) {
                 case PayuConstants.TXNID: // lets set up txnid.
-                    ((EditText) linearLayout.getChildAt(1)).setText(""+System.currentTimeMillis());
+                    ((EditText) linearLayout.getChildAt(1)).setText("" + System.currentTimeMillis());
                     break;
             }
 
@@ -445,7 +449,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void launchSdkUI(PayuHashes payuHashes){
+    public void launchSdkUI(PayuHashes payuHashes) {
         // let me add the other params which i might use from other activity
 
         intent.putExtra(PayuConstants.PAYU_CONFIG, payuConfig);
@@ -467,12 +471,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    /****************************** Client hash generation ***********************************/
+    /******************************
+     * Client hash generation
+     ***********************************/
     // Do not use this, you may use this only for testing.
     // lets generate hashes.
     // This should be done from server side..
     // Do not keep salt anywhere in app.
-    public void generateHashFromSDK(PaymentParams mPaymentParams, String Salt){
+    public void generateHashFromSDK(PaymentParams mPaymentParams, String Salt) {
         PayuHashes payuHashes = new PayuHashes();
         postData = new PostData();
 
@@ -493,47 +499,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         checksum.setUdf5(mPaymentParams.getUdf5());
 
         postData = checksum.getHash();
-        if(postData.getCode() == PayuErrors.NO_ERROR){
+        if (postData.getCode() == PayuErrors.NO_ERROR) {
             payuHashes.setPaymentHash(postData.getResult());
         }
 
         // checksum for payemnt related details
         // var1 should be either user credentials or default
-        var1 = var1 == null ? PayuConstants.DEFAULT : var1 ;
+        var1 = var1 == null ? PayuConstants.DEFAULT : var1;
 
-        if((postData = calculateHash(key, PayuConstants.PAYMENT_RELATED_DETAILS_FOR_MOBILE_SDK, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR) // Assign post data first then check for success
+        if ((postData = calculateHash(key, PayuConstants.PAYMENT_RELATED_DETAILS_FOR_MOBILE_SDK, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR) // Assign post data first then check for success
             payuHashes.setPaymentRelatedDetailsForMobileSdkHash(postData.getResult());
         //vas
-        if((postData = calculateHash(key, PayuConstants.VAS_FOR_MOBILE_SDK, PayuConstants.DEFAULT, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
+        if ((postData = calculateHash(key, PayuConstants.VAS_FOR_MOBILE_SDK, PayuConstants.DEFAULT, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
             payuHashes.setVasForMobileSdkHash(postData.getResult());
 
         // getIbibocodes
-        if((postData = calculateHash(key, PayuConstants.GET_MERCHANT_IBIBO_CODES, PayuConstants.DEFAULT, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
+        if ((postData = calculateHash(key, PayuConstants.GET_MERCHANT_IBIBO_CODES, PayuConstants.DEFAULT, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
             payuHashes.setMerchantIbiboCodesHash(postData.getResult());
 
-        if(!var1.contentEquals(PayuConstants.DEFAULT)){
+        if (!var1.contentEquals(PayuConstants.DEFAULT)) {
             // get user card
-            if((postData = calculateHash(key, PayuConstants.GET_USER_CARDS, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR) // todo rename storedc ard
+            if ((postData = calculateHash(key, PayuConstants.GET_USER_CARDS, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR) // todo rename storedc ard
                 payuHashes.setStoredCardsHash(postData.getResult());
             // save user card
-            if((postData = calculateHash(key, PayuConstants.SAVE_USER_CARD, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
+            if ((postData = calculateHash(key, PayuConstants.SAVE_USER_CARD, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
                 payuHashes.setSaveCardHash(postData.getResult());
             // delete user card
-            if((postData = calculateHash(key, PayuConstants.DELETE_USER_CARD, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
+            if ((postData = calculateHash(key, PayuConstants.DELETE_USER_CARD, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
                 payuHashes.setDeleteCardHash(postData.getResult());
             // edit user card
-            if((postData = calculateHash(key, PayuConstants.EDIT_USER_CARD, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
+            if ((postData = calculateHash(key, PayuConstants.EDIT_USER_CARD, var1, salt)) != null && postData.getCode() == PayuErrors.NO_ERROR)
                 payuHashes.setEditCardHash(postData.getResult());
         }
 
-        if(mPaymentParams.getOfferKey() != null ){
+        if (mPaymentParams.getOfferKey() != null) {
             postData = calculateHash(key, PayuConstants.OFFER_KEY, mPaymentParams.getOfferKey(), salt);
-            if(postData.getCode() == PayuErrors.NO_ERROR){
+            if (postData.getCode() == PayuErrors.NO_ERROR) {
                 payuHashes.setCheckOfferStatusHash(postData.getResult());
             }
         }
 
-        if(mPaymentParams.getOfferKey() != null && (postData = calculateHash(key, PayuConstants.CHECK_OFFER_STATUS, mPaymentParams.getOfferKey(), salt)) != null && postData.getCode() == PayuErrors.NO_ERROR ){
+        if (mPaymentParams.getOfferKey() != null && (postData = calculateHash(key, PayuConstants.CHECK_OFFER_STATUS, mPaymentParams.getOfferKey(), salt)) != null && postData.getCode() == PayuErrors.NO_ERROR) {
             payuHashes.setCheckOfferStatusHash(postData.getResult());
         }
 
