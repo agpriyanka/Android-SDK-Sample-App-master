@@ -116,8 +116,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PayUSdkDetails payUSdkDetails = new PayUSdkDetails();
 
         Toast.makeText(this, "Build No: " + payUSdkDetails.getSdkBuildNumber() + "\n Build Type: " + payUSdkDetails.getSdkBuildType() + " \n Build Flavor: " + payUSdkDetails.getSdkFlavor() + "\n Application Id: " + payUSdkDetails.getSdkApplicationId() + "\n Version Code: " + payUSdkDetails.getSdkVersionCode() + "\n Version Name: " + payUSdkDetails.getSdkVersionName(), Toast.LENGTH_LONG).show();
-        Toast.makeText(this, "PRIYANKA", Toast.LENGTH_LONG).show();
-
     }
 
     @Override
